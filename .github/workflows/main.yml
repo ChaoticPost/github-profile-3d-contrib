@@ -7,16 +7,17 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Generate 3D Contribution Chart
-        uses: yoshi389111/github-profile-3d-contrib@latest
+      - name: Generate 3D Chart
+        uses: yoshi389111/github-profile-3d-contrib@main
         env:
           GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
           USERNAME: ChaoticPost
-          OUTPUT_DIR: dist  # <<< обязательно!
+          OUTPUT_DIR: dist
 
-      - name: Upload generated SVG to output branch
+      - name: Upload to output branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
