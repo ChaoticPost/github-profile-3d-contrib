@@ -1,23 +1,19 @@
-name: Generate GitHub Contribution Snake
+name: Generate 3D Contribution Chart
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
-    name: Generate 3D Snake
+    name: Generate 3D Chart
     steps:
       - uses: actions/checkout@v3
 
-      - name: Generate GitHub Contribution Snake
-        uses: Platane/snk@v3
+      - name: Generate 3D profile chart
+        uses: yoshi389111/github-profile-3d-contrib@latest
         with:
-          github_user_name: ChaoticPost
-          outputs: |
-            dist/profile-customize.svg
+          username: ChaoticPost
 
       - name: Push the generated files to the output branch
         uses: crazy-max/ghaction-github-pages@v3
