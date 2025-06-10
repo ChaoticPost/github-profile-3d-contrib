@@ -9,14 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Generate 3D chart
+      - name: Generate 3D Contribution Chart
         uses: yoshi389111/github-profile-3d-contrib@latest
         env:
           GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_ACCESS_TOKEN }}
           USERNAME: ChaoticPost
-          OUTPUT_DIR: dist
+          OUTPUT_DIR: dist  # <<< обязательно!
 
-      - name: Push to output branch
+      - name: Upload generated SVG to output branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
